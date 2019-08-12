@@ -19,8 +19,17 @@ body {
   background-color: #f4f1ec;
   font-size: 24px;
   font-family: "Source Sans Pro", sans-serif;
-  margin: auto;
-  padding-top: 90px
+  padding-top: 90px;
+}
+
+.main-container {
+  background-color: #f4f1ec;
+  display: flex;
+  justify-content: center
+}
+
+.sub-container {
+  width: 90%
 }
 
 /*
