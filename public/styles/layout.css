@@ -19,11 +19,10 @@ body {
   background-color: #f4f1ec;
   font-size: 24px;
   font-family: "Source Sans Pro", sans-serif;
-  padding-top: 90px;
+  padding-top: 4.5em;
 }
 
 .main-container {
-  background-color: #f4f1ec;
   display: flex;
   justify-content: center
 }

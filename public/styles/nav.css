@@ -3,23 +3,22 @@
       background-color: #4056a1;
       overflow: hidden;
       width: 100%;
-      height: 90px;
       top: 0;
       z-index: 10000;
       display: flex;
       justify-content: space-between;
+      padding: 1.5em
   }
 
   .topnav-big-logo {
       color: #ffffff;
       font-family: "Bungee", sans-serif;
       font-size: 36px;
-      padding: 1.5em;
+      text-align: bottom
   }
 
   .topnav-write-tweet {
       color: #ffffff;
       font-family: "Source Sans Pro", sans-serif;
-      font-size: 20px;
-      padding: 1.5em;
+      font-size: 22px;
   }

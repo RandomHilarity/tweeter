@@ -19,6 +19,9 @@
     <!-- Avatar (Header) CSS -->
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
 
+    <!-- Post Tweet Bar CSS -->
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
 
@@ -30,12 +33,8 @@
 
     <!-- Top nav bar (fixed) -->
     <nav class="topnav">
-      <div>
       <a class="topnav-big-logo">tweeter</a>
-      </div>
-      <div>
       <a class="topnav-write-tweet"><strong>Write</strong> a new tweet</a>
-      </div>
     </nav>
     <header class="avatar-box">
       <div>
@@ -48,6 +47,16 @@
     <!-- Page-specific (main) content here -->
     <main class="main-container">
       <div class="sub-container">
+        <section>
+          <h2>Compose Tweet</h2>
+          <form method="POST" action="/tweets">
+            <textarea name="text" class="humm-text" placeholder="What are you humming about?"></textarea>
+              <div class="btn-cntr-box">
+                <input type="submit" class="tweet-btn" value="Tweet">
+                <span class="counter">140</span>
+              </div>
+          </form>
+        </section>
         <p>
           I have a 10 year old son. He has words. He is so good with these words it's unbelievable. Does everybody know that pig named Lorem Ipsum? She's a disgusting pig, right? Trump Ipsum is calling for a total and complete shutdown of Muslim text entering your website. If Trump Ipsum weren’t my own words, perhaps I’d be dating it.
           <br>
