@@ -1,5 +1,6 @@
   .topnav {
       position: fixed;
+      color: #ffffff;
       background-color: #4056a1;
       overflow: hidden;
       width: 100%;
@@ -11,14 +12,12 @@
   }
 
   .topnav-big-logo {
-      color: #ffffff;
       font-family: "Bungee", sans-serif;
       font-size: 36px;
       text-align: bottom
   }
 
   .topnav-write-tweet {
-      color: #ffffff;
       font-family: "Source Sans Pro", sans-serif;
       font-size: 22px;
   }

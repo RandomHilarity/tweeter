@@ -24,5 +24,10 @@
 
 .counter {
     font-family: "Bungee";
-    justify-items: right
+    justify-items: right;
+    color: #545149;
+}
+
+.red {
+    color: #FF0000;
 }
