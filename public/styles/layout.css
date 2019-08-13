@@ -24,11 +24,59 @@ body {
 
 .main-container {
   display: flex;
-  justify-content: center
+  justify-content: center;
+  width: 90%
 }
 
 .sub-container {
+  width: 90%;
+}
+
+.tweet-box {
+  border: solid #545149 4px;
+  display: flex;
+  justify-content: center;
+  opacity: 0.5;
+}
+
+.tweet-box:hover {
+  border: solid #545149 4px;
+  display: flex;
+  justify-content: center;
+  opacity: 1;
+  box-shadow:
+       1px 1px #379dbf,
+       2px 2px #379dbf,
+       3px 3px #379dbf;
+  -webkit-transform: translate(-3px);
+  transform: translate(-3px)
+}
+
+.tweet-box-handle {
+  visibility: hidden;
+  color: #379dbf
+}
+
+.tweet-box:hover .tweet-box-handle {
+  visibility: visible
+}
+
+.tweet-box article {
   width: 90%
+}
+
+.tweet-box header {
+  padding: 0.5em;
+  display: flex;
+  justify-content: space-between
+}
+
+.tweet-box footer {
+  padding: 0.5em;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  border-top: solid #545149 4px;
 }
 
 /*

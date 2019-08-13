@@ -1,9 +1,6 @@
-// counter function, returns 140 - the number of characters typed in
-
 $(document).ready(function() {
   
-  console.log(this, "composer is ready");
-  
+  // counter function, returns 140 - the number of characters typed in
   $(".humm-text").on("keyup", function() {
     let length = $(this).val().length;
     let lengthRemaining = 140 - length;

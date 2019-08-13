@@ -13,13 +13,16 @@
     border-top: transparent;
     border-left: transparent;
     border-right: transparent;    
-    border-bottom: 4px solid
+    border-bottom: 4px solid;
+    resize: none;
     }
 
 .tweet-btn {
     font-family: "Bungee";
     background-color: #4056a1;
     color: #ffffff;
+    font-size: 18px;
+    border: 0;
 }
 
 .counter {
