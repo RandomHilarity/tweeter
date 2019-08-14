@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+  //function adapted from: https://stackoverflow.com/a/6109105
   const timeDifference = function(current, previous) {
 
     const msPerMinute = 60 * 1000;
@@ -8,20 +9,30 @@ $(document).ready(function() {
     const msPerMonth = msPerDay * 30;
     const msPerYear = msPerDay * 365;
     const elapsed = current - previous;
-
+    
+    let timeElapsed = "";
+    let desc = "";
+ 
     if (elapsed < msPerMinute) {
-      return Math.round(elapsed / 1000) + ' seconds ago';
+      return 'less than a minute ago';
     } else if (elapsed < msPerHour) {
-      return Math.round(elapsed / msPerMinute) + ' minutes ago';
+      timeElapsed =  Math.round(elapsed / msPerMinute);
+      desc = ' minute';
     } else if (elapsed < msPerDay) {
-      return Math.round(elapsed / msPerHour) + ' hours ago';
+      timeElapsed = Math.round(elapsed / msPerHour);
+      desc = ' hour';
     } else if (elapsed < msPerMonth) {
-      return 'approximately ' + Math.round(elapsed / msPerDay) + ' days ago';
+      timeElapsed = Math.round(elapsed / msPerDay);
+      desc = ' day';
     } else if (elapsed < msPerYear) {
-      return 'approximately ' + Math.round(elapsed / msPerMonth) + ' months ago';
+      timeElapsed = Math.round(elapsed / msPerMonth);
+      desc = ' month';
     } else {
-      return 'approximately ' + Math.round(elapsed / msPerYear) + ' years ago';
+      timeElapsed = Math.round(elapsed / msPerYear);
+      desc = ' year';
     }
+    timeElapsed === 1 ? desc += ' ago' : desc += 's ago';
+    return `${timeElapsed} ${desc}`;
   };
 
   // Fake data taken from initial-tweets.json
