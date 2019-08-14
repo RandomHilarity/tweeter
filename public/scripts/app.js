@@ -1,5 +1,6 @@
 $(() => {
 
+  //compare current time, posted time, and return a humanized value
   //function adapted from: https://stackoverflow.com/a/6109105
   const timeDifference = function(current, previous) {
 
@@ -58,18 +59,23 @@ $(() => {
     const form = $(this);
     const formData = form.serialize();
     const url = form.attr("action");
+
+    if (formData.length <= 5) {
+      alert("You can't tweet about nothing!");
+    } else {
    
-    // Send the data using post
-    $.ajax({
-      type: "POST",
-      url: url,
-      data: formData
-    })
-      .then(function() {
-        $("#post-tweet.text").val("");
-        $("#tweets").empty();
-        loadTweets();
-      });
+      // Send the data using post
+      $.ajax({
+        type: "POST",
+        url: url,
+        data: formData
+      })
+        .then(function() {
+          $("#post-tweet.text").val("");  //erase text entry box
+          $("#tweets").empty();  //remove all tweets from page
+          loadTweets();  //render all tweets from database again
+        });
+    }
   });
 
   const renderTweets = function(tweets) {
@@ -80,7 +86,16 @@ $(() => {
   // takes return value and appends it to the tweets container
   };
   const createTweetElement = function(tweet) {
-    let time = Date.now();
+    const time = Date.now();
+
+    // scrubs user tweet input to text
+    const escape =  function(str) {
+      let div = document.createElement('div');
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    };
+
+    const safeHTML = `<p>${escape(tweet.content.text)}</p>`;
     
     let $tweet = $(`
 
@@ -90,9 +105,7 @@ $(() => {
       <img src="${tweet.user.avatars}">${tweet.user.name}</img>
       <span class="tweet-box-handle">${tweet.user.handle}</span>
     </header>
-    <p>
-      ${tweet.content.text}
-    </p>
+    ${safeHTML}
     <footer class="tweet-box-footer">
     <span>
       ${timeDifference(time, tweet.created_at)}
