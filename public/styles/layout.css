@@ -25,11 +25,20 @@ body {
 .main-container {
   display: flex;
   justify-content: center;
-  width: 90%
 }
 
 .sub-container {
   width: 90%;
+} 
+
+.errors {
+  display: none;
+  justify-content: center;
+  border-top: solid red 2px;
+  border-bottom: solid red 2px;
+  color: red;
+  margin-top: 1em;
+  text-align: center
 }
 
 .tweet-box {
@@ -37,6 +46,7 @@ body {
   display: flex;
   justify-content: center;
   opacity: 0.5;
+  overflow-wrap: break-word
 }
 
 .tweet-box:hover {

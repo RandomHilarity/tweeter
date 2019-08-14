@@ -61,8 +61,10 @@ $(() => {
     const url = form.attr("action");
 
     if (formData.length <= 5) {
-      alert("You can't tweet about nothing!");
+      $(".errors").slideDown();
+      $(".errors span").text("Please tweet about something!");
     } else {
+      $(".errors").slideUp();
       // Send the data using post
       $.ajax({
         type: "POST",
@@ -130,4 +132,6 @@ $(() => {
     $("#tweets").focus();
     return false;
   });
+
+
 });
