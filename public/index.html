@@ -34,8 +34,11 @@
 
     <!-- Top nav bar (fixed) -->
     <nav class="topnav">
-      <a class="topnav-big-logo">tweeter</a>
-      <a class="topnav-write-tweet"><strong>Write</strong> a new tweet</a>
+      <a class="topnav-left">tweeter</a>
+      <div class="topnav-right">
+        <a><strong>Write</strong> a new tweet</a>
+        <a href="#" class="topnav-arrow"><img class="topnav-arrow" src="images/dblarr.png"></a>
+      </div>
     </nav>
     <header class="avatar-box">
       <div>
@@ -48,7 +51,7 @@
     <!-- Page-specific (main) content here -->
     <main class="main-container">
       <div class="sub-container">
-        <section>
+        <section id="compose-box">
           <h2>Compose Tweet</h2>
           <form method="POST" action="/tweets" id="post-tweet">
             <textarea name="text" class="humm-text" maxlength="140" placeholder="What are you humming about?"></textarea>

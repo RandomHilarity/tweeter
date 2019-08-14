@@ -63,7 +63,6 @@ $(() => {
     if (formData.length <= 5) {
       alert("You can't tweet about nothing!");
     } else {
-   
       // Send the data using post
       $.ajax({
         type: "POST",
@@ -124,4 +123,11 @@ $(() => {
   };
   
   loadTweets();
+
+  $(".topnav-arrow").click(function(event) {
+    event.preventDefault();
+    $("#compose-box").toggle(200, "swing");
+    $("#tweets").focus();
+    return false;
+  });
 });
