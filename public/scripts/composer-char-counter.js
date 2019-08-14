@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(() => {
   
   // counter function, returns 140 - the number of characters typed in
   $(".humm-text").on("keyup", function() {
