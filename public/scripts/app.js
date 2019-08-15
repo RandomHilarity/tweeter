@@ -126,6 +126,7 @@ $(() => {
   
   loadTweets();
 
+  //controls arrow under write a new tweet, toggles compose box
   $(".topnav-arrow").click(function(event) {
     event.preventDefault();
     $("#compose-box").toggle(200, "swing");
@@ -133,5 +134,19 @@ $(() => {
     return false;
   });
 
+  //controls bottom scroll arrow, links back to top of document
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > 300) {
+      $("#scroll-top").addClass("show");
+    } else {
+      $("#scroll-top").removeClass("show");
+    }
+  });
 
+  $("#scroll-top").click(function() {
+    $("html, body").animate({
+      scrollTop: 0
+    }, 300);
+  });
 });
+

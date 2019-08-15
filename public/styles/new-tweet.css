@@ -1,36 +1,36 @@
-.btn-cntr-box {
-    display: flex;
-    justify-content: space-between
+.humm-text {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 24px;
+  background: transparent;
+  outline: none;
+  height: 2em;
+  width: 100%;
+  border-top: transparent;
+  border-left: transparent;
+  border-right: transparent;    
+  border-bottom: 4px solid;
+  resize: none;
 }
 
-.humm-text {
-    font-family: "Source Sans Pro", sans-serif;
-    font-size: 24px;
-    background: transparent;
-    outline: none;
-    height: 2em;
-    width: 100%;
-    border-top: transparent;
-    border-left: transparent;
-    border-right: transparent;    
-    border-bottom: 4px solid;
-    resize: none;
-    }
+.btn-cntr-box {
+  display: flex;
+  justify-content: space-between
+}
 
 .tweet-btn {
-    font-family: "Bungee";
-    background-color: #4056a1;
-    color: #ffffff;
-    font-size: 18px;
-    border: 0;
+  font-family: "Bungee";
+  background-color: #4056a1;
+  color: #ffffff;
+  font-size: 18px;
+  border: 0;
 }
 
 .counter {
-    font-family: "Bungee";
-    justify-items: right;
-    color: #545149;
+  font-family: "Bungee";
+  justify-items: right;
+  color: #545149;
 }
 
 .red {
-    color: #FF0000;
+  color: #FF0000;
 }
