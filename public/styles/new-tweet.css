@@ -1,34 +1,35 @@
 .humm-text {
+  background: transparent;
+  border-bottom: 4px solid;
+  border-left: transparent;
+  border-right: transparent;
+  border-top: transparent;
   font-family: "Source Sans Pro", sans-serif;
   font-size: 24px;
-  background: transparent;
+  font-weight: 600;
+  height: 3em;
   outline: none;
-  height: 2em;
-  width: 100%;
-  border-top: transparent;
-  border-left: transparent;
-  border-right: transparent;    
-  border-bottom: 4px solid;
   resize: none;
+  width: 100%;
 }
 
 .btn-cntr-box {
   display: flex;
-  justify-content: space-between
+  justify-content: space-between;
 }
 
 .tweet-btn {
-  font-family: "Bungee";
   background-color: #4056a1;
-  color: #ffffff;
-  font-size: 18px;
   border: 0;
+  color: #ffffff;
+  font-family: "Bungee";
+  font-size: 18px;
 }
 
 .counter {
+  color: #545149;
   font-family: "Bungee";
   justify-items: right;
-  color: #545149;
 }
 
 .red {

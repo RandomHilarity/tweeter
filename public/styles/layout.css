@@ -11,7 +11,7 @@ html {
 }
 
 /*
- * Global layout stuff
+ * Global layout stuff, order of appearance on page
  */
 
 body {
@@ -19,16 +19,17 @@ body {
   color: #545149;
   font-size: 24px;
   font-family: "Source Sans Pro", sans-serif;
-  padding-top: 5em;
 }
 
 .main-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
 }
 
-.sub-container {
+/* border around tweet boxes < 1024px, sets columns for >= 1024 below */ 
+.desktop-split {
   width: 90%;
+  margin: auto;
 } 
 
 .errors {
@@ -36,48 +37,54 @@ body {
   border-top: solid red 2px;
   color: red;
   display: none;
-  margin-top: 1em;
-  text-align: center
+  margin-top: 2em;
+  padding: 0.25em;
+  text-align: center;
 }
 
+/* see new-tweet.css for internal settings for compose */
+.compose-box {
+  display: none;
+}
+
+/* settings for displayed posted tweets */
 .tweet-box {
   border: solid #545149 4px;
   display: flex;
   justify-content: center;
+  margin: auto;
   opacity: 0.5;
-  overflow-wrap: break-word
+  overflow-wrap: break-word;
 }
 
 .tweet-box:hover {
-  border: solid #545149 4px;
   box-shadow:
     1px 1px #379dbf,
     2px 2px #379dbf,
     3px 3px #379dbf;
-  display: flex;
-  justify-content: center;
   opacity: 1;
   transform: translate(-3px);
-  -webkit-transform: translate(-3px)
+  -webkit-transform: translate(-3px);
 }
 
 .tweet-box article {
-  width: 90%
-}
-
-.tweet-box-handle {
-  color: #379dbf;
-  visibility: hidden
-}
-
-.tweet-box:hover .tweet-box-handle {
-  visibility: visible
+  width: 90%;
 }
 
 .tweet-box header {
   display: flex;
   justify-content: space-between;
-  padding: 0.5em
+  padding: 0.5em;
+}
+
+.tweet-box-handle {
+  color: #379dbf;
+  text-align: right;
+  visibility: hidden;
+}
+
+.tweet-box:hover .tweet-box-handle {
+  visibility: visible;
 }
 
 .tweet-box footer {
@@ -88,15 +95,24 @@ body {
   padding: 0.5em;
 }
 
+.link-images {
+  visibility: hidden;
+}
+
+.tweet-box:hover .link-images {
+  visibility: visible;
+}
+
+/* settings for bottom-right scroll-to-top button */
 #scroll-top {
   bottom: 0.5em;
-  right: 0.5em;
   display: inline-block;
-  text-align: center;
-  margin: 30px;
-  position: fixed;
-  transition: opacity 0.5s ease-out;
+  margin: 10px;
   opacity: 0;
+  position: fixed;
+  right: 0.5em;
+  text-align: center;
+  transition: opacity 0.5s ease-out;
   z-index: 10001;
 }
 
@@ -106,4 +122,33 @@ body {
 
 #scroll-top.show {
   opacity: 1;
+}
+
+/* Tablet Styles */
+@media only screen and (min-width: 768px) {
+
+  /* no changes here */
+  /* see header.css for changes to avatar */
+  /* see nav.css for changes to navigation bar */
+
+}
+
+/* Desktop styles */
+@media only screen and (min-width: 1024px) {
+
+  /* changes to 2-column format */
+  /* see header.css for changes to avatar */
+
+  .main-container {
+    flex-direction: row;
+  }
+
+  .desktop-split {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 4em;
+    margin-right: 1.5em;
+    width: 70%;
+  }
 }

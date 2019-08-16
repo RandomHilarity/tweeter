@@ -1,3 +1,5 @@
+/*eslint-env jquery, browser*/
+
 $(() => {
 
   //compare current time, posted time, and return a humanized value
@@ -37,7 +39,7 @@ $(() => {
       return `${timeElapsed} ${desc}`;
     }
   };
-  
+
   //get tweets from database and load to page
   const loadTweets = function() {
     $.ajax({
@@ -72,7 +74,7 @@ $(() => {
         data: formData
       })
         .then(function() {
-          $("#post-tweet.text").val("");  //erase text entry box
+          $("#post-tweet").trigger("reset");  //erase text entry box
           $("#tweets").empty();  //remove all tweets from page
           loadTweets();  //render all tweets from database again
         });
@@ -81,10 +83,10 @@ $(() => {
 
   const renderTweets = function(tweets) {
     for (let tweet of tweets) {
-      $("#tweets").append(createTweetElement(tweet));
+      $("#tweets").prepend(createTweetElement(tweet));
     }
   // calls createTweetElement for each tweet
-  // takes return value and appends it to the tweets container
+  // takes return value and prepends (reverse order) it to the tweets container
   };
   const createTweetElement = function(tweet) {
     const time = Date.now();
@@ -103,7 +105,9 @@ $(() => {
     <div class="tweet-box">
     <article class="tweet-article">
     <header class="tweet-box-header">
-      <img src="${tweet.user.avatars}">${tweet.user.name}</img>
+      <span>
+        <img src="${tweet.user.avatars}">${tweet.user.name}</img>
+      </span>
       <span class="tweet-box-handle">${tweet.user.handle}</span>
     </header>
     ${safeHTML}
@@ -111,7 +115,7 @@ $(() => {
     <span>
       ${timeDifference(time, tweet.created_at)}
     </span>
-    <div>
+    <div class="link-images">
       <img src="./images/flag.png">
       <img src="./images/retweet.png">
       <img src="./images/like.png">
@@ -130,11 +134,12 @@ $(() => {
   $(".topnav-arrow").click(function(event) {
     event.preventDefault();
     $("#compose-box").toggle(200, "swing");
-    $("#tweets").focus();
+    $(".errors").slideUp();
+    $(".humm-text").focus();
     return false;
   });
 
-  //controls bottom scroll arrow, links back to top of document
+  //bottom arrow, scrolls back to top of document, and opens compose
   $(window).scroll(function() {
     if ($(this).scrollTop() > 300) {
       $("#scroll-top").addClass("show");
@@ -144,9 +149,15 @@ $(() => {
   });
 
   $("#scroll-top").click(function() {
+    $(".errors").slideUp();
+    $('#compose-box').slideUp(); //hides errors and compose box if already open
     $("html, body").animate({
       scrollTop: 0
     }, 300);
+    $('#compose-box').slideDown();  //opens compose box, so going to top will always open box
+    $(".humm-text").focus();
+
+    return false;
   });
 });
 
